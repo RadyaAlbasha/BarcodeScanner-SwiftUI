@@ -16,7 +16,7 @@ struct BarcodeScannerView: View {
             VStack {
                 ScannerView(scannedCode: $viewModel.scannedCode,
                             alertItem: $viewModel.alertITem)
-                    .frame(maxWidth: .infinity, maxHeight: 300)
+                    .frame(maxHeight: 300)
                 
                 Spacer()
                     .frame(height: 60)
@@ -32,8 +32,8 @@ struct BarcodeScannerView: View {
             }
             .navigationTitle("Barcode Scanner")
             .alert(item: $viewModel.alertITem) { item in
-                Alert(title: Text(item.title),
-                      message: Text(item.message),
+                Alert(title: item.title,
+                      message: item.message,
                       dismissButton: item.dismissButton)
             }
         }
